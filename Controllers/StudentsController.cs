@@ -2,10 +2,9 @@
 using System;
 using WebApplication1.DAL;
 using System.Data.SqlClient;
-using System.Text.Json.Serialization;
 using System.Text.Json;
 using System.Collections;
-
+using System.Collections.Generic;
 
 namespace WebApplication1
 {
@@ -26,8 +25,9 @@ namespace WebApplication1
         {
             using (SqlConnection connection = new SqlConnection("Data Source=db-mssql;Initial Catalog=s19677;Integrated Security=true"))
             using (SqlCommand command = new SqlCommand())
+
             {
-                ArrayList students = new ArrayList();
+                List<Student> students = new List<Student>();
                 command.Connection = connection;
                 command.CommandText = "SELECT std.FirstName, std.LastName, std.BirthDate, sts.name, enr.Semester FROM Student std, Enrollment enr, Studies sts WHERE (std.IdEnrollment = enr.IdEnrollment) AND (enr.IdStudy = sts.IdStudy)";
                 connection.Open();
@@ -35,19 +35,18 @@ namespace WebApplication1
                 SqlDataReader dr = command.ExecuteReader();
                 while (dr.Read())
                 {
-                    Student st = new Student();
-                    st.FirstName = dr["FirstName"].ToString();
-                    st.LastName = dr["LastName"].ToString();
-                    st.BirthDate = dr["BirthDate"].ToString();
-                    st.CourseName = dr["name"].ToString();
-                    st.Semester = dr["Semester"].ToString();
+                    Student student = new Student();
+                    student.FirstName = dr["FirstName"].ToString();
+                    student.LastName = dr["LastName"].ToString();
+                    student.BirthDate = (DateTime)dr["BirthDate"];
+                    student.CourseName = dr["name"].ToString();
+                    student.Semester = dr["Semester"].ToString();
 
-                    students.Add(st);
+                    students.Add(student);
 
                 }
                 connection.Dispose();
-                string s = JsonSerializer.Serialize(students);
-                return Ok(s);
+                return Ok(students);
             }
            
         }
@@ -63,20 +62,18 @@ namespace WebApplication1
                 command.Connection = connection;
                 command.CommandText = "SELECT std.FirstName, std.LastName, std.BirthDate, sts.name, enr.Semester FROM Student std, Enrollment enr, Studies sts WHERE (std.IdEnrollment = enr.IdEnrollment) AND (enr.IdStudy = sts.IdStudy) AND std.IndexNumber ="+id+";";
                 SqlDataReader dr = command.ExecuteReader();
-                Student st = new Student();
+                Student student = new Student();
                
                 while (dr.Read())
                 {
-                    st.FirstName = dr["FirstName"].ToString();
-                    st.LastName = dr["LastName"].ToString();
-                    st.BirthDate = dr["BirthDate"].ToString();
-                    st.CourseName = dr["name"].ToString();
-                    st.Semester = dr["Semester"].ToString();
+                    student.FirstName = dr["FirstName"].ToString();
+                    student.LastName = dr["LastName"].ToString();
+                    student.BirthDate = (DateTime)dr["BirthDate"];
+                    student.CourseName = dr["name"].ToString();
+                    student.Semester = dr["Semester"].ToString();
                 }
 
-                connection.Dispose();
-                string s = JsonSerializer.Serialize(st);
-                return Ok(s);
+                return Ok(student);
             }
         }
 

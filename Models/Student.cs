@@ -14,7 +14,7 @@ namespace WebApplication1
         [JsonPropertyName("IndexNumber")]
         public string IndexNumber { get; set; }
         [JsonPropertyName("BirthDate")]
-        public string BirthDate { get; set; }
+        public DateTime BirthDate { get; set; }
         [JsonPropertyName("CourseName")]
         public string CourseName { get; set; }
         [JsonPropertyName("Semester")]
