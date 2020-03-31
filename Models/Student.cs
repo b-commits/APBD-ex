@@ -1,32 +1,21 @@
 ﻿using System;
-using System.Text.Json.Serialization;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebApplication1
 {
-    [Serializable]
     public class Student
     {
-        public int IdStudent { get; set; }
-        [JsonPropertyName("FirstName")]
-        public string FirstName { get; set; }
-        [JsonPropertyName("LastName")]
-        public string LastName { get; set; }
-        [JsonPropertyName("IndexNumber")]
+        [Required]
         public string IndexNumber { get; set; }
-        [JsonPropertyName("BirthDate")]
+        [Required]
+        public string FirstName { get; set; }
+        [Required]
+        public string LastName { get; set; }
+        [Required]
         public DateTime BirthDate { get; set; }
-        [JsonPropertyName("CourseName")]
-        public string CourseName { get; set; }
-        [JsonPropertyName("Semester")]
-        public string Semester { get; set; }
+        [Required]
+        public string Studies { get; set; }
 
-
-        public Student(int IdStudent, string FirstName, string LastName)
-        {
-            this.IdStudent = IdStudent;
-            this.FirstName = FirstName;
-            this.LastName = LastName;
-        }
 
         public Student() { }
 
