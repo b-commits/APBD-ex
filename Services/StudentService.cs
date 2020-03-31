@@ -1,18 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Net;
+using System.Linq;
+using System.Threading.Tasks;
 using WebApplication1.Models;
-using WebApplication1.Services;
+using System.Net;
 
-namespace WebApplication1.Controllers
+
+namespace WebApplication1.Services
 {
-    [ApiController]
-    [Route("api/enrollments")]
-    public class EnrollmentsController : ControllerBase
+    public class StudentService : ControllerBase, IStudentsDbService
     {
-
-        [HttpPost("enrollStudent")]
         public IActionResult EnrollStudent([FromBody] Student Student)
         {
             using (SqlConnection connection = new SqlConnection("Data Source=db-mssql;Initial Catalog=s19677;Integrated Security=true"))
@@ -83,7 +82,6 @@ namespace WebApplication1.Controllers
             }
         }
 
-        [HttpPost("promotions")]
         public IActionResult PromoteStudents([FromBody] StudiesSemester StudiesSemester)
         {
             using (SqlConnection connection = new SqlConnection("Data Source=db-mssql;Initial Catalog=s19677;Integrated Security=true"))
@@ -105,16 +103,61 @@ namespace WebApplication1.Controllers
 
                 return StatusCode((int)HttpStatusCode.Created, enrollment);
             }
-
         }
 
+        public IActionResult GetStudentInfo(int id)
+        {
+            using (SqlConnection connection = new SqlConnection("Data Source=db-mssql;Initial Catalog=s19677;Integrated Security=true"))
+            using (SqlCommand command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = "SELECT std.IndexNumber, std.FirstName, std.LastName, std.BirthDate, sts.name, enr.Semester FROM Student std, Enrollment enr, Studies sts WHERE (std.IdEnrollment = enr.IdEnrollment) AND (enr.IdStudy = sts.IdStudy) AND std.IndexNumber =" + id + ";";
+                SqlDataReader dr = command.ExecuteReader();
+                Student student = new Student();
 
+                while (dr.Read())
+                {
+                    student.IndexNumber = dr["IndexNumber"].ToString();
+                    student.FirstName = dr["FirstName"].ToString();
+                    student.LastName = dr["LastName"].ToString();
+                    student.BirthDate = (DateTime)dr["BirthDate"];
+                }
 
+                return Ok(student);
+            }
+        }
 
+        public IActionResult GetStudents(string orderBy)
+        {
+            using (SqlConnection connection = new SqlConnection("Data Source=db-mssql;Initial Catalog=s19677;Integrated Security=true"))
+            using (SqlCommand command = new SqlCommand())
 
+            {
+                List<Student> students = new List<Student>();
+                command.Connection = connection;
+                command.CommandText = "SELECT std.IndexNumber, std.FirstName, std.LastName, std.BirthDate, sts.name, enr.Semester FROM Student std, Enrollment enr, Studies sts WHERE (std.IdEnrollment = enr.IdEnrollment) AND (enr.IdStudy = sts.IdStudy)";
+                connection.Open();
 
+                SqlDataReader dr = command.ExecuteReader();
+                while (dr.Read())
+                {
+                    Student student = new Student();
 
+                    student.IndexNumber = dr["IndexNumber"].ToString();
+                    student.FirstName = dr["FirstName"].ToString();
+                    student.LastName = dr["LastName"].ToString();
+                    student.BirthDate = (DateTime)dr["BirthDate"];
+
+                    students.Add(student);
+
+                }
+                connection.Dispose();
+                return Ok(students);
+            }
+        }
+
+ 
     }
 
 }
-
