@@ -12,7 +12,7 @@ namespace WebApplication1.Services
 {
     public class StudentService : ControllerBase, IStudentsDbService
     {
-        public IActionResult EnrollStudent([FromBody] Student Student)
+        public Enrollment EnrollStudent([FromBody] Student Student)
         {
             using (SqlConnection connection = new SqlConnection("Data Source=db-mssql;Initial Catalog=s19677;Integrated Security=true"))
             using (SqlCommand command = new SqlCommand())
@@ -35,7 +35,6 @@ namespace WebApplication1.Services
                 if (!dr.HasRows)
                 {
                     transaction.Rollback();
-                    return BadRequest("Kierunek o podanej nazwie nie istnieje.");
                 }
 
                 command.CommandText = "SELECT IdStudy FROM Studies WHERE Name = @studies";
@@ -62,7 +61,6 @@ namespace WebApplication1.Services
                 if (result2 == null)
                 {
                     transaction.Rollback();
-                    return BadRequest("Taki student już istnieje");
                 }
 
                 command.CommandText = "INSERT INTO Student VALUES (@indexNumber, @firstName, @lastName, @birthDate, 99)";
@@ -77,12 +75,12 @@ namespace WebApplication1.Services
                     Studies = Student.Studies
                 };
 
-                return StatusCode((int)HttpStatusCode.Created, enrollment);
+                return enrollment;
 
             }
         }
 
-        public IActionResult PromoteStudents([FromBody] StudiesSemester StudiesSemester)
+        public Enrollment PromoteStudents([FromBody] StudiesSemester StudiesSemester)
         {
             using (SqlConnection connection = new SqlConnection("Data Source=db-mssql;Initial Catalog=s19677;Integrated Security=true"))
             using (SqlCommand command = new SqlCommand("promoteStudents", connection))
@@ -101,18 +99,18 @@ namespace WebApplication1.Services
                     Studies = StudiesSemester.Studies
                 };
 
-                return StatusCode((int)HttpStatusCode.Created, enrollment);
+                return enrollment;
             }
         }
 
-        public IActionResult GetStudentInfo(int id)
+        public Student GetStudentInfo(string ska)
         {
             using (SqlConnection connection = new SqlConnection("Data Source=db-mssql;Initial Catalog=s19677;Integrated Security=true"))
             using (SqlCommand command = new SqlCommand())
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = "SELECT std.IndexNumber, std.FirstName, std.LastName, std.BirthDate, sts.name, enr.Semester FROM Student std, Enrollment enr, Studies sts WHERE (std.IdEnrollment = enr.IdEnrollment) AND (enr.IdStudy = sts.IdStudy) AND std.IndexNumber =" + id + ";";
+                command.CommandText = "SELECT std.IndexNumber, std.FirstName, std.LastName, std.BirthDate, sts.name, enr.Semester FROM Student std, Enrollment enr, Studies sts WHERE (std.IdEnrollment = enr.IdEnrollment) AND (enr.IdStudy = sts.IdStudy) AND std.IndexNumber ='" + ska + "';";
                 SqlDataReader dr = command.ExecuteReader();
                 Student student = new Student();
 
@@ -124,11 +122,11 @@ namespace WebApplication1.Services
                     student.BirthDate = (DateTime)dr["BirthDate"];
                 }
 
-                return Ok(student);
+                return student;
             }
         }
 
-        public IActionResult GetStudents()
+        public List<Student> GetStudents()
         {
             using (SqlConnection connection = new SqlConnection("Data Source=db-mssql;Initial Catalog=s19677;Integrated Security=true"))
             using (SqlCommand command = new SqlCommand())
@@ -152,8 +150,7 @@ namespace WebApplication1.Services
                     students.Add(student);
 
                 }
-                connection.Dispose();
-                return Ok(students);
+                return students;
             }
         }
 

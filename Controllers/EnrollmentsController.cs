@@ -19,30 +19,13 @@ namespace WebApplication1.Controllers
         [HttpPost("enrollStudent")]
         public IActionResult EnrollStudent([FromBody] Student Student)
         {
-            _service.EnrollStudent(Student);
-
-
-            Enrollment enrollment = new Enrollment
-            {
-                Semester = 1,
-                Studies = Student.Studies
-            };
-
-            return StatusCode((int)HttpStatusCode.Created, enrollment);
+            return StatusCode((int)HttpStatusCode.Created, _service.EnrollStudent(Student));
         }
 
         [HttpPost("promotions")]
         public IActionResult PromoteStudents([FromBody] StudiesSemester StudiesSemester)
         {
-            _service.PromoteStudents(StudiesSemester);
-
-            Enrollment enrollment = new Enrollment
-            {
-                Semester = StudiesSemester.Semester + 1,
-                Studies = StudiesSemester.Studies
-            };
-
-            return StatusCode((int)HttpStatusCode.Created, enrollment);
+            return StatusCode((int)HttpStatusCode.Created, _service.PromoteStudents(StudiesSemester));
         }
 
     }

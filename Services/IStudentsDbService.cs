@@ -9,11 +9,9 @@ namespace WebApplication1.Services
 {
     public interface IStudentsDbService
     {
-
-        public IActionResult EnrollStudent([FromBody] Student Student);
-        public IActionResult PromoteStudents([FromBody] StudiesSemester StudiesSemester);
-        public IActionResult GetStudents();
-        public IActionResult GetStudentInfo(int id);
-
+        public Enrollment EnrollStudent([FromBody] Student Student);
+        public Enrollment PromoteStudents([FromBody] StudiesSemester StudiesSemester);
+        public List<Student> GetStudents();
+        public Student GetStudentInfo(string indexNumber);
     }
 }
