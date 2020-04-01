@@ -1,9 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Data.SqlClient;
-using System.Text.Json;
-using System.Collections;
-using System.Collections.Generic;
 using WebApplication1.Services;
 
 namespace WebApplication1
