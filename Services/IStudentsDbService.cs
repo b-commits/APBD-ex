@@ -7,12 +7,12 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Services
 {
-    interface IStudentsDbService
+    public interface IStudentsDbService
     {
 
         public IActionResult EnrollStudent([FromBody] Student Student);
         public IActionResult PromoteStudents([FromBody] StudiesSemester StudiesSemester);
-        public IActionResult GetStudents(string orderBy);
+        public IActionResult GetStudents();
         public IActionResult GetStudentInfo(int id);
 
     }

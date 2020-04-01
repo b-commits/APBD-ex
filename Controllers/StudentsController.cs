@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Text.Json;
 using System.Collections;
 using System.Collections.Generic;
+using WebApplication1.Services;
 
 namespace WebApplication1
 {
@@ -11,8 +12,15 @@ namespace WebApplication1
     [Route("api/students")]
     public class StudentsController : ControllerBase
     {
+        private IStudentsDbService _service;
+
+        public StudentsController(IStudentsDbService service)
+        {
+            _service = service;
+        }
+
         [HttpGet("getStudents")]
-        public IActionResult GetStudents(string orderBy)
+        public IActionResult GetStudents()
         {
             using (SqlConnection connection = new SqlConnection("Data Source=db-mssql;Initial Catalog=s19677;Integrated Security=true"))
             using (SqlCommand command = new SqlCommand())

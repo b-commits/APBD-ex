@@ -128,7 +128,7 @@ namespace WebApplication1.Services
             }
         }
 
-        public IActionResult GetStudents(string orderBy)
+        public IActionResult GetStudents()
         {
             using (SqlConnection connection = new SqlConnection("Data Source=db-mssql;Initial Catalog=s19677;Integrated Security=true"))
             using (SqlCommand command = new SqlCommand())
@@ -157,7 +157,6 @@ namespace WebApplication1.Services
             }
         }
 
- 
     }
 
 }
