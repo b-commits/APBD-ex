@@ -13,7 +13,7 @@ namespace WebApplication1.Services
     public class StudentService : ControllerBase, IStudentsDbService
     {
         public Enrollment EnrollStudent([FromBody] Student Student)
-        {
+        {        
             using (SqlConnection connection = new SqlConnection("Data Source=db-mssql;Initial Catalog=s19677;Integrated Security=true"))
             using (SqlCommand command = new SqlCommand())
             {
@@ -40,9 +40,12 @@ namespace WebApplication1.Services
                 command.CommandText = "SELECT IdStudy FROM Studies WHERE Name = @studies";
                 dr.Read();
                 string idStudy = dr["IdStudy"].ToString();
+                dr.Close();
 
                 command.Parameters.AddWithValue("@idStudy", idStudy);
-                dr.Close();
+
+                command.CommandText = "SELECT IdEnrollment FROM Enrollment WHERE IdStudy = @idStudy AND semester = 1";
+                string newEnrol = command.ExecuteScalar().ToString();
 
                 command.CommandText = "SELECT * FROM Enrollment WHERE IdStudy = @idStudy AND semester = 1";
                 var result = command.ExecuteScalar();
@@ -52,8 +55,11 @@ namespace WebApplication1.Services
                     string SqlFormattedDate = (DateTime.Now).ToString("yyyy-MM-dd");
                     command.Parameters.AddWithValue("@date", SqlFormattedDate);
                     command.CommandText = "INSERT INTO Enrollment VALUES (99, 1, @idStudy, @date)";
+                    newEnrol = "99";
                     command.ExecuteNonQuery();
                 }
+
+                command.Parameters.AddWithValue("@newEnrol", newEnrol);
 
                 command.CommandText = "SELECT IndexNumber FROM Student WHERE IndexNumber = @indexNumber";
                 var result2 = command.ExecuteScalar();
@@ -63,7 +69,7 @@ namespace WebApplication1.Services
                     transaction.Rollback();
                 }
 
-                command.CommandText = "INSERT INTO Student VALUES (@indexNumber, @firstName, @lastName, @birthDate, 99)";
+                command.CommandText = "INSERT INTO Student VALUES (@indexNumber, @firstName, @lastName, @birthDate, @newEnrol);";
                 command.ExecuteNonQuery();
 
                 transaction.Commit();
