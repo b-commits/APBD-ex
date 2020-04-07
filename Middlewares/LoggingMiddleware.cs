@@ -1,8 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace WebApplication1.Middlewares
@@ -30,10 +27,10 @@ namespace WebApplication1.Middlewares
                     httpContext.Request.Body.Position = 0;
                 };
 
-                File.AppendAllText(Directory.GetCurrentDirectory()+"/requestsLog.txt", "["+System.DateTime.Now.ToString()+"]"+"\n"+method + "\n" + path + "\n" + query + "\n" + body+"\n");
-            } 
-            await _next(httpContext); 
-            
+                File.AppendAllText(Directory.GetCurrentDirectory() + "/requestsLog.txt", "[" + System.DateTime.Now.ToString() + "]" + "\n" + method + "\n" + path + "\n" + query + "\n" + body + "\n");
+            }
+            await _next(httpContext);
+
         }
     }
 

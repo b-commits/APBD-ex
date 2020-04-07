@@ -2,10 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Threading.Tasks;
 using WebApplication1.Models;
-using System.Net;
 
 // Zanim zadanie trafi do kontrolerow, trafia do middleware'a, gdzie zostaje przetworzone i moze np. zostac odrzucone.
 // Middleware'y tworzymy w klasie stratup w metodzie configure. to, gdzie go umiescimy ma znaczenie.
@@ -15,7 +12,7 @@ namespace WebApplication1.Services
     public class StudentService : IStudentsDbService
     {
         public Enrollment EnrollStudent([FromBody] Student Student)
-        {        
+        {
             using (SqlConnection connection = new SqlConnection("Data Source=db-mssql;Initial Catalog=s19677;Integrated Security=true"))
             using (SqlCommand command = new SqlCommand())
             {
@@ -177,7 +174,8 @@ namespace WebApplication1.Services
                 if (result == null)
                 {
                     return false;
-                } else
+                }
+                else
                 {
                     return true;
                 }
