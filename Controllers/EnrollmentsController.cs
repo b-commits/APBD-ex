@@ -15,13 +15,11 @@ namespace WebApplication1.Controllers
         {
             _service = service;
         }
-
         [HttpPost("enrollStudent")]
         public IActionResult EnrollStudent([FromBody] Student Student)
         {
             return StatusCode((int)HttpStatusCode.Created, _service.EnrollStudent(Student));
         }
-
         [HttpPost("promotions")]
         public IActionResult PromoteStudents([FromBody] StudiesSemester StudiesSemester)
         {

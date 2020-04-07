@@ -16,7 +16,6 @@ namespace WebApplication1
         [Required]
         public string Studies { get; set; }
 
-
         public Student() { }
 
     }
