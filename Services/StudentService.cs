@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 using WebApplication1.Models;
 using System.Net;
 
+// Zanim zadanie trafi do kontrolerow, trafia do middleware'a, gdzie zostaje przetworzone i moze np. zostac odrzucone.
+// Middleware'y tworzymy w klasie stratup w metodzie configure. to, gdzie go umiescimy ma znaczenie.
 
 namespace WebApplication1.Services
 {
-    public class StudentService : ControllerBase, IStudentsDbService
+    public class StudentService : IStudentsDbService
     {
         public Enrollment EnrollStudent([FromBody] Student Student)
         {        
@@ -64,7 +66,7 @@ namespace WebApplication1.Services
                 command.CommandText = "SELECT IndexNumber FROM Student WHERE IndexNumber = @indexNumber";
                 var result2 = command.ExecuteScalar();
 
-                if (result2 == null)
+                if (result2 != null)
                 {
                     transaction.Rollback();
                 }
@@ -160,6 +162,28 @@ namespace WebApplication1.Services
             }
         }
 
+        public static Boolean CheckIndex(string indexNumber)
+        {
+            using (SqlConnection connection = new SqlConnection("Data Source=db-mssql;Initial Catalog=s19677;Integrated Security=true"))
+            using (SqlCommand command = new SqlCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.Parameters.AddWithValue("@index", indexNumber);
+
+                command.CommandText = "SELECT 1 FROM Student WHERE indexNumber = @index";
+                var result = command.ExecuteScalar();
+
+                if (result == null)
+                {
+                    return false;
+                } else
+                {
+                    return true;
+                }
+
+            }
+        }
     }
 
 }

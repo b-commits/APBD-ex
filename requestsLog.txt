@@ -1,0 +1,123 @@
+[07/04/2020 13:16:21]
+GET
+/
+
+[07/04/2020 13:16:21]
+POST
+/api/enrollments/enrollStudent
+?index=19010
+{
+	"IndexNumber": "s1234",
+	"FirstName": "Andrzej",
+	"LastName": "Malewski",
+	"BirthDate": "1993-03-03",
+	"Studies": "IT"
+}[07/04/2020 13:16:21]
+GET
+/favicon.ico
+
+[07/04/2020 13:16:51]
+GET
+/
+
+
+[07/04/2020 13:16:51]
+POST
+/api/enrollments/enrollStudent
+?index=19010
+{
+	"IndexNumber": "s1234",
+	"FirstName": "Andrzej",
+	"LastName": "Malewski",
+	"BirthDate": "1993-03-03",
+	"Studies": "IT"
+}
+[07/04/2020 13:16:51]
+GET
+/favicon.ico
+
+
+[07/04/2020 13:17:09]
+GET
+/
+
+
+[07/04/2020 13:17:09]
+GET
+/favicon.ico
+
+
+[07/04/2020 13:17:10]
+POST
+/api/enrollments/enrollStudent
+?index=19010
+{
+	"IndexNumber": "s1234",
+	"FirstName": "Andrzej",
+	"LastName": "Malewski",
+	"BirthDate": "1993-03-03",
+	"Studies": "IT"
+}
+[07/04/2020 13:17:33]
+GET
+/
+
+
+[07/04/2020 13:17:33]
+GET
+/favicon.ico
+
+
+[07/04/2020 13:17:33]
+POST
+/api/enrollments/enrollStudent
+?index=19010
+{
+	"IndexNumber": "s1234",
+	"FirstName": "Andrzej",
+	"LastName": "Malewski",
+	"BirthDate": "1993-03-03",
+	"Studies": "IT"
+}
+[07/04/2020 13:18:41]
+GET
+/
+
+
+[07/04/2020 13:18:41]
+POST
+/api/enrollments/enrollStudent
+?index=19010
+{
+	"IndexNumber": "s1234",
+	"FirstName": "Andrzej",
+	"LastName": "Malewski",
+	"BirthDate": "1993-03-03",
+	"Studies": "IT"
+}
+[07/04/2020 13:18:41]
+GET
+/favicon.ico
+
+
+[07/04/2020 13:20:19]
+GET
+/
+
+
+[07/04/2020 13:20:19]
+GET
+/favicon.ico
+
+
+[07/04/2020 13:20:20]
+POST
+/api/enrollments/enrollStudent
+?index=19010
+{
+	"IndexNumber": "s1234",
+	"FirstName": "Andrzej",
+	"LastName": "Malewski",
+	"BirthDate": "1993-03-03",
+	"Studies": "IT"
+}
