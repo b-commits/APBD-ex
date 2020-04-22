@@ -1,5 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using WebApplication1.Models;
 using WebApplication1.Services;
 
 namespace WebApplication1
@@ -43,8 +50,7 @@ namespace WebApplication1
         {
             return Ok("Aktualizacja zakończona");
         }
-
-
-
+ 
     }
+    
 }

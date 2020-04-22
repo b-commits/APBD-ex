@@ -1,123 +1,447 @@
-[07/04/2020 13:16:21]
+[22.04.2020 17:00:08]
 GET
 /
 
-[07/04/2020 13:16:21]
-POST
-/api/enrollments/enrollStudent
-?index=19010
-{
-	"IndexNumber": "s1234",
-	"FirstName": "Andrzej",
-	"LastName": "Malewski",
-	"BirthDate": "1993-03-03",
-	"Studies": "IT"
-}[07/04/2020 13:16:21]
+
+[22.04.2020 17:00:08]
 GET
 /favicon.ico
 
-[07/04/2020 13:16:51]
-GET
-/
 
-
-[07/04/2020 13:16:51]
+[22.04.2020 17:00:31]
 POST
-/api/enrollments/enrollStudent
-?index=19010
+/api/enrollStudent
+
 {
 	"IndexNumber": "s1234",
 	"FirstName": "Andrzej",
 	"LastName": "Malewski",
-	"BirthDate": "1993-03-03",
+	"BirthDate": "30-03-1993",
 	"Studies": "IT"
 }
-[07/04/2020 13:16:51]
+
+[22.04.2020 17:00:31]
 GET
 /favicon.ico
 
 
-[07/04/2020 13:17:09]
-GET
-/
-
-
-[07/04/2020 13:17:09]
-GET
-/favicon.ico
-
-
-[07/04/2020 13:17:10]
+[22.04.2020 17:00:33]
 POST
-/api/enrollments/enrollStudent
-?index=19010
+/api/enrollStudent
+
 {
 	"IndexNumber": "s1234",
 	"FirstName": "Andrzej",
 	"LastName": "Malewski",
-	"BirthDate": "1993-03-03",
+	"BirthDate": "30-03-1993",
 	"Studies": "IT"
 }
-[07/04/2020 13:17:33]
+
+[22.04.2020 17:00:51]
 GET
 /
 
 
-[07/04/2020 13:17:33]
+[22.04.2020 17:00:51]
 GET
 /favicon.ico
 
 
-[07/04/2020 13:17:33]
+[22.04.2020 17:00:57]
 POST
-/api/enrollments/enrollStudent
-?index=19010
+/api/enrollStudent
+
 {
-	"IndexNumber": "s1234",
-	"FirstName": "Andrzej",
-	"LastName": "Malewski",
-	"BirthDate": "1993-03-03",
-	"Studies": "IT"
+"IndexNumber": "s1234",
+"FirstName": "Andrzej",
+"LastName": "Malewski",
+"BirthDate": "30.03.1993",
+"Studies": "IT"
 }
-[07/04/2020 13:18:41]
-GET
-/
 
-
-[07/04/2020 13:18:41]
+[22.04.2020 17:01:09]
 POST
-/api/enrollments/enrollStudent
-?index=19010
+/api/enrollStudent
+
 {
-	"IndexNumber": "s1234",
-	"FirstName": "Andrzej",
-	"LastName": "Malewski",
-	"BirthDate": "1993-03-03",
-	"Studies": "IT"
+"IndexNumber": "s1234",
+"FirstName": "Andrzej",
+"LastName": "Malewski",
+"BirthDate": "30.03.1993",
+"Studies": "IT"
 }
-[07/04/2020 13:18:41]
-GET
-/favicon.ico
 
-
-[07/04/2020 13:20:19]
+[22.04.2020 17:01:23]
 GET
 /
 
 
-[07/04/2020 13:20:19]
+[22.04.2020 17:01:23]
 GET
 /favicon.ico
 
 
-[07/04/2020 13:20:20]
+[22.04.2020 17:01:28]
+POST
+/api/login
+
+
+[22.04.2020 17:01:54]
+POST
+/api/login
+
+
+[22.04.2020 17:01:55]
+POST
+/api/login
+
+
+[22.04.2020 17:01:55]
+POST
+/api/login
+
+
+[22.04.2020 17:02:25]
+GET
+/
+
+
+[22.04.2020 17:02:25]
+GET
+/favicon.ico
+
+
+[22.04.2020 17:02:36]
+POST
+/api/login
+
+
+[22.04.2020 17:03:57]
+GET
+/
+
+
+[22.04.2020 17:03:57]
+GET
+/favicon.ico
+
+
+[22.04.2020 17:04:00]
+POST
+/api/login
+
+
+[22.04.2020 17:04:09]
+GET
+/
+
+
+[22.04.2020 17:04:09]
+GET
+/favicon.ico
+
+
+[22.04.2020 17:04:12]
+POST
+/api/login
+
+
+[22.04.2020 17:04:38]
+GET
+/
+
+
+[22.04.2020 17:04:38]
+GET
+/favicon.ico
+
+
+[22.04.2020 17:04:39]
 POST
 /api/enrollments/enrollStudent
 ?index=19010
+
+[22.04.2020 17:06:34]
+GET
+/
+
+
+[22.04.2020 17:06:34]
+GET
+/favicon.ico
+
+
+[22.04.2020 17:06:36]
+POST
+/api/enrollments/enrollStudent
+?index=19010
+
+[22.04.2020 17:07:10]
+GET
+/
+
+
+[22.04.2020 17:11:03]
+GET
+/
+
+
+[22.04.2020 17:11:03]
+GET
+/favicon.ico
+
+
+[22.04.2020 17:11:32]
+POST
+/api/students/getStudents
+?index=19010
+
+[22.04.2020 17:11:33]
+POST
+/api/students/getStudents
+?index=19010
+
+[22.04.2020 17:11:34]
+POST
+/api/students/getStudents
+?index=19010
+
+[22.04.2020 17:11:52]
+POST
+/api/students/getStudents
+?index=19010
+
+[22.04.2020 17:11:53]
+POST
+/api/students/getStudents
+?index=19010
+
+[22.04.2020 17:12:29]
+POST
+/api/students/getStudents
+
+
+[22.04.2020 17:12:29]
+POST
+/api/students/getStudents
+
+
+[22.04.2020 17:12:34]
+POST
+/api/login
+
+
+[22.04.2020 17:13:09]
+GET
+/
+
+
+[22.04.2020 17:13:09]
+GET
+/favicon.ico
+
+
+[22.04.2020 17:13:16]
+POST
+/api/students/getStudents
+
+
+[22.04.2020 17:13:33]
+GET
+/api/students/getStudents
+
+
+[22.04.2020 17:14:12]
+POST
+/api/enrollments/enrollStudent
+?index=19010
+
+[22.04.2020 17:14:27]
+POST
+/api/login
+
+
+[22.04.2020 17:14:56]
+POST
+/api/login
+
+
+[22.04.2020 17:15:22]
+POST
+/api/login
+
 {
-	"IndexNumber": "s1234",
-	"FirstName": "Andrzej",
-	"LastName": "Malewski",
-	"BirthDate": "1993-03-03",
-	"Studies": "IT"
+	"index": "Jim"
+	"password": "jim22"
+}
+[22.04.2020 17:16:25]
+POST
+/api/login
+
+{
+	"User": "s19010"
+	"Password": "jim22"
+}
+[22.04.2020 17:16:25]
+POST
+/api/login
+
+{
+	"User": "s19010"
+	"Password": "jim22"
+}
+[22.04.2020 17:16:26]
+POST
+/api/login
+
+{
+	"User": "s19010"
+	"Password": "jim22"
+}
+[22.04.2020 17:18:01]
+POST
+/api/login
+
+{
+	"User": "s19001"
+	"Password": "michael22"
+}
+[22.04.2020 17:18:07]
+POST
+/api/login
+
+{
+	"User": "s19001",
+	"Password": "michael22"
+}
+[22.04.2020 17:18:48]
+GET
+/
+
+
+[22.04.2020 17:18:48]
+GET
+/favicon.ico
+
+
+[22.04.2020 17:18:49]
+POST
+/api/login
+
+{
+	"Login": "s19001",
+	"Password": "michael22"
+}
+[22.04.2020 17:18:58]
+POST
+/api/login
+
+{
+	"Login": "s19010",
+	"Password": "bb22"
+}
+[22.04.2020 17:20:16]
+GET
+/
+
+
+[22.04.2020 17:20:16]
+GET
+/favicon.ico
+
+
+[22.04.2020 17:20:18]
+POST
+/api/login
+
+{
+	"Login": "s19010",
+	"Password": "bb22"
+}
+[22.04.2020 17:20:28]
+POST
+/api/login
+
+{
+	"Login": "s19010",
+	"Password": "jim22"
+}
+[22.04.2020 17:20:29]
+POST
+/api/login
+
+{
+	"Login": "s19010",
+	"Password": "jim22"
+}
+[22.04.2020 17:20:40]
+POST
+/api/login
+
+{
+	"Login": "s19010",
+	"Password": "hidetoshi22"
+}
+[22.04.2020 17:36:53]
+GET
+/
+
+
+[22.04.2020 17:36:53]
+GET
+/favicon.ico
+
+
+[22.04.2020 17:37:46]
+GET
+/api/students/getStudentInfo/19001
+
+
+[22.04.2020 17:38:02]
+GET
+/api/students/getStudentInfo/'s19001'
+
+
+[22.04.2020 17:38:14]
+GET
+/api/students/getStudents
+
+
+[22.04.2020 17:38:23]
+GET
+/api/students/getStudents
+
+
+[22.04.2020 17:38:37]
+GET
+/api/students/getStudents
+
+
+[22.04.2020 17:39:29]
+GET
+/api/students/getStudents
+
+
+[22.04.2020 17:39:40]
+GET
+/favicon.ico
+
+
+[22.04.2020 17:44:44]
+GET
+/
+
+
+[22.04.2020 17:44:44]
+GET
+/favicon.ico
+
+
+[22.04.2020 17:45:00]
+POST
+/api/login
+
+{
+	"Login": "s19010",
+	"Password": "hidetoshi22"
 }

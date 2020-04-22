@@ -4,16 +4,15 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using WebApplication1.Models;
 
-// Zanim zadanie trafi do kontrolerow, trafia do middleware'a, gdzie zostaje przetworzone i moze np. zostac odrzucone.
-// Middleware'y tworzymy w klasie stratup w metodzie configure. to, gdzie go umiescimy ma znaczenie.
 
 namespace WebApplication1.Services
 {
     public class StudentService : IStudentsDbService
     {
+        private const string ConnectionString = "Data Source=db-mssql;Initial Catalog=s19677;Integrated Security=true";
         public Enrollment EnrollStudent([FromBody] Student Student)
         {
-            using (SqlConnection connection = new SqlConnection("Data Source=db-mssql;Initial Catalog=s19677;Integrated Security=true"))
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             using (SqlCommand command = new SqlCommand())
             {
                 command.Parameters.AddWithValue("@indexNumber", Student.IndexNumber);
@@ -87,7 +86,7 @@ namespace WebApplication1.Services
 
         public Enrollment PromoteStudents([FromBody] StudiesSemester StudiesSemester)
         {
-            using (SqlConnection connection = new SqlConnection("Data Source=db-mssql;Initial Catalog=s19677;Integrated Security=true"))
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             using (SqlCommand command = new SqlCommand("promoteStudents", connection))
             {
                 connection.Open();
@@ -110,7 +109,7 @@ namespace WebApplication1.Services
 
         public Student GetStudentInfo(string ska)
         {
-            using (SqlConnection connection = new SqlConnection("Data Source=db-mssql;Initial Catalog=s19677;Integrated Security=true"))
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             using (SqlCommand command = new SqlCommand())
             {
                 connection.Open();
@@ -133,7 +132,7 @@ namespace WebApplication1.Services
 
         public List<Student> GetStudents()
         {
-            using (SqlConnection connection = new SqlConnection("Data Source=db-mssql;Initial Catalog=s19677;Integrated Security=true"))
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             using (SqlCommand command = new SqlCommand())
 
             {
@@ -161,7 +160,7 @@ namespace WebApplication1.Services
 
         public static Boolean CheckIndex(string indexNumber)
         {
-            using (SqlConnection connection = new SqlConnection("Data Source=db-mssql;Initial Catalog=s19677;Integrated Security=true"))
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             using (SqlCommand command = new SqlCommand())
             {
                 connection.Open();
@@ -178,6 +177,28 @@ namespace WebApplication1.Services
                 else
                 {
                     return true;
+                }
+
+            }
+        }
+
+        public bool AuthorizeStudent(string user, string password)
+        {
+            using (var connection = new SqlConnection(ConnectionString))
+            using (var command = new SqlCommand())
+            {
+                command.Connection = connection;
+                connection.Open();
+                try
+                {
+                    command.Parameters.AddWithValue("user", user);
+                    command.Parameters.AddWithValue("password", password);
+                    command.CommandText = "SELECT 1 FROM Student WHERE IndexNumber = @user and Password = @password;";
+                    return command.ExecuteReader().Read();
+                } catch (SqlException ex)
+                {
+                    Console.WriteLine("Invalid credentials.");
+                    return false;
                 }
 
             }

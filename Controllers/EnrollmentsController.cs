@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using WebApplication1.Models;
 using WebApplication1.Services;
@@ -16,11 +17,13 @@ namespace WebApplication1.Controllers
             _service = service;
         }
         [HttpPost("enrollStudent")]
+        [Authorize]
         public IActionResult EnrollStudent([FromBody] Student Student)
         {
             return StatusCode((int)HttpStatusCode.Created, _service.EnrollStudent(Student));
         }
         [HttpPost("promotions")]
+        [Authorize]
         public IActionResult PromoteStudents([FromBody] StudiesSemester StudiesSemester)
         {
             return StatusCode((int)HttpStatusCode.Created, _service.PromoteStudents(StudiesSemester));
