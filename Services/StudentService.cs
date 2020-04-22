@@ -195,14 +195,57 @@ namespace WebApplication1.Services
                     command.Parameters.AddWithValue("password", password);
                     command.CommandText = "SELECT 1 FROM Student WHERE IndexNumber = @user and Password = @password;";
                     return command.ExecuteReader().Read();
-                } catch (SqlException ex)
+                }
+                catch (SqlException ex)
                 {
-                    Console.WriteLine("Invalid credentials.");
                     return false;
                 }
 
             }
         }
-    }
 
+        public bool SetRefreshToken(string refreshToken, string user)
+        {
+            using (var connection = new SqlConnection(ConnectionString))
+            using (var command = new SqlCommand())
+            {
+                command.Connection = connection;
+                connection.Open();
+                try
+                {
+                    command.Parameters.AddWithValue("refreshToken", refreshToken);
+                    command.Parameters.AddWithValue("user", user);
+                    command.CommandText = "UPDATE Student SET RefreshToken = @refreshToken WHERE IndexNumber = @user";
+                    command.ExecuteNonQuery();
+                    return true;
+                }
+                catch (SqlException ex)
+                {
+                    return false;
+                }
+            }
+        }
+
+        public bool CheckRefreshToken(string refreshToken, string user)
+        {
+            using (var connection = new SqlConnection(ConnectionString))
+            using (var command = new SqlCommand())
+            {
+                command.Connection = connection;
+                connection.Open();
+                try
+                {
+                    command.Parameters.AddWithValue("refreshToken", refreshToken);
+                    command.Parameters.AddWithValue("user", user);
+                    Console.WriteLine(refreshToken);
+                    command.CommandText = "SELECT 1 FROM Student WHERE IndexNumber = @user AND refreshToken = @refreshToken";
+                    return command.ExecuteReader().Read();
+                }
+                catch (SqlException ex)
+                {
+                    return false;
+                }
+            }
+        }
+    }
 }
