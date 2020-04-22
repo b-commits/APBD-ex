@@ -445,3 +445,13 @@ POST
 	"Login": "s19010",
 	"Password": "hidetoshi22"
 }
+[22.04.2020 18:08:11]
+GET
+/
+
+
+[22.04.2020 18:08:11]
+GET
+/favicon.ico
+
+

@@ -8,7 +8,7 @@ using System.Text;
 using WebApplication1.Models;
 using WebApplication1.Services;
 
-namespace zajecia5.Controllers
+namespace WebApplication1
 {
     [Route("api/login")]
     [ApiController]
