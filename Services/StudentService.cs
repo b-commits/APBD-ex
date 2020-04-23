@@ -67,7 +67,7 @@ namespace WebApplication1.Services
                     transaction.Rollback();
                 }
 
-                command.CommandText = "INSERT INTO Student VALUES (@indexNumber, @firstName, @lastName, @birthDate, @newEnrol);";
+                command.CommandText = "INSERT INTO Student VALUES (@indexNumber, @firstName, @lastName, @birthDate, @newEnrol, null, null, null)";
                 command.ExecuteNonQuery();
 
                 transaction.Commit();
@@ -158,7 +158,7 @@ namespace WebApplication1.Services
             }
         }
 
-        public static Boolean CheckIndex(string indexNumber)
+        public static bool CheckIndex(string indexNumber)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             using (SqlCommand command = new SqlCommand())

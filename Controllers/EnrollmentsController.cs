@@ -17,13 +17,13 @@ namespace WebApplication1.Controllers
             _service = service;
         }
         [HttpPost("enrollStudent")]
-        [Authorize]
+        [Authorize(Roles = "employee")]
         public IActionResult EnrollStudent([FromBody] Student Student)
         {
             return StatusCode((int)HttpStatusCode.Created, _service.EnrollStudent(Student));
         }
         [HttpPost("promotions")]
-        [Authorize]
+        [Authorize(Roles = "employee")]
         public IActionResult PromoteStudents([FromBody] StudiesSemester StudiesSemester)
         {
             return StatusCode((int)HttpStatusCode.Created, _service.PromoteStudents(StudiesSemester));

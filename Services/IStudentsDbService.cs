@@ -12,9 +12,9 @@ namespace WebApplication1.Services
         public List<Student> GetStudents();
         public Student GetStudentInfo(string indexNumber);
 
-        public Boolean AuthorizeStudent(string user, string password);
-        public Boolean SetRefreshToken(string refreshToken, string user);
-        public Boolean CheckRefreshToken(string refreshToken, string user);
+        public bool AuthorizeStudent(string user, string password);
+        public bool SetRefreshToken(string refreshToken, string user);
+        public bool CheckRefreshToken(string refreshToken, string user);
 
 
 

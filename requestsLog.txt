@@ -929,3 +929,282 @@ POST
 	"Login": "s19013",
 	"Password": "jim22"
 }
+[23.04.2020 16:06:41]
+GET
+/
+
+
+[23.04.2020 16:06:41]
+GET
+/favicon.ico
+
+
+[23.04.2020 16:06:54]
+POST
+/api/login/
+
+{
+	"Login": "s19013",
+	"Password": "jim22"
+}
+[23.04.2020 16:08:30]
+POST
+/api/enrollments/enrollStudent
+
+{
+	"IndexNumber": "s1",
+	"FirstName": "Andrzej",
+	"LastName": "Malewski",
+	"BirthDate": "03-03-1993",
+	"Studies": "IT"
+}
+[23.04.2020 16:08:55]
+POST
+/api/login
+
+{
+	"Login": "s19013",
+	"Password": "jim22"
+}
+[23.04.2020 16:09:40]
+POST
+/api/enrollments/enrollStudent
+
+{
+	"IndexNumber": "s1234",
+	"FirstName": "Andrzej",
+	"LastName": "Malewski",
+	"BirthDate": "03-03-1993",
+	"Studies": "IT"
+}
+[23.04.2020 16:10:06]
+POST
+/api/enrollments/enrollStudent
+
+{
+	"IndexNumber": "s1234",
+	"FirstName": "Andrzej",
+	"LastName": "Malewski",
+	"BirthDate": "1993-03-03",
+	"Studies": "IT"
+}
+[23.04.2020 16:11:23]
+GET
+/
+
+
+[23.04.2020 16:11:23]
+GET
+/favicon.ico
+
+
+[23.04.2020 16:11:26]
+POST
+/api/enrollments/enrollStudent
+
+{
+	"IndexNumber": "s1234",
+	"FirstName": "B",
+	"LastName": "A",
+	"BirthDate": "1993-03-03",
+	"Studies": "IT"
+}
+[23.04.2020 16:11:41]
+GET
+/
+
+
+[23.04.2020 16:11:42]
+GET
+/favicon.ico
+
+
+[23.04.2020 16:11:51]
+POST
+/api/enrollments/enrollStudent
+
+{
+	"IndexNumber": "s1234",
+	"FirstName": "B",
+	"LastName": "A",
+	"BirthDate": "1993-03-03",
+	"Studies": "IT"
+}
+[23.04.2020 16:12:42]
+GET
+/
+
+
+[23.04.2020 16:12:42]
+GET
+/favicon.ico
+
+
+[23.04.2020 16:12:43]
+POST
+/api/enrollments/enrollStudent
+
+{
+	"IndexNumber": "s1234",
+	"FirstName": "B",
+	"LastName": "A",
+	"BirthDate": "1993-03-03",
+	"Studies": "IT"
+}
+[23.04.2020 16:14:44]
+GET
+/
+
+
+[23.04.2020 16:14:44]
+GET
+/favicon.ico
+
+
+[23.04.2020 16:15:09]
+GET
+/
+
+
+[23.04.2020 16:15:09]
+GET
+/favicon.ico
+
+
+[23.04.2020 16:15:09]
+POST
+/api/enrollments/enrollStudent
+
+{
+	"IndexNumber": "s1234",
+	"FirstName": "B",
+	"LastName": "A",
+	"BirthDate": "1993-03-03",
+	"Studies": "IT"
+}
+[23.04.2020 16:16:24]
+GET
+/
+
+
+[23.04.2020 16:16:24]
+POST
+/api/enrollments/enrollStudent
+
+{
+	"IndexNumber": "s1234",
+	"FirstName": "B",
+	"LastName": "A",
+	"BirthDate": "1993-03-03",
+	"Studies": "IT"
+}
+[23.04.2020 16:16:24]
+GET
+/favicon.ico
+
+
+[23.04.2020 16:16:53]
+GET
+/
+
+
+[23.04.2020 16:16:53]
+GET
+/favicon.ico
+
+
+[23.04.2020 16:16:56]
+POST
+/api/enrollments/enrollStudent
+
+{
+	"IndexNumber": "s1234",
+	"FirstName": "B",
+	"LastName": "A",
+	"BirthDate": "1993-03-03",
+	"Studies": "IT"
+}
+[23.04.2020 16:17:31]
+GET
+/
+
+
+[23.04.2020 16:17:31]
+GET
+/favicon.ico
+
+
+[23.04.2020 16:17:31]
+POST
+/api/enrollments/enrollStudent
+
+{
+	"IndexNumber": "s1234",
+	"FirstName": "B",
+	"LastName": "A",
+	"BirthDate": "1993-03-03",
+	"Studies": "IT"
+}
+[23.04.2020 16:18:49]
+POST
+/api/enrollments/enrollStudent
+
+{
+	"IndexNumber": "s1234",
+	"FirstName": "B",
+	"LastName": "A",
+	"BirthDate": "1993-03-03",
+	"Studies": "IT"
+}
+[23.04.2020 16:18:49]
+GET
+/favicon.ico
+
+
+[23.04.2020 16:19:47]
+GET
+/
+
+
+[23.04.2020 16:19:47]
+GET
+/favicon.ico
+
+
+[23.04.2020 16:20:00]
+POST
+/api/enrollments/enrollStudent
+
+{
+	"IndexNumber": "s1234",
+	"FirstName": "B",
+	"LastName": "A",
+	"BirthDate": "1993-03-03",
+	"Studies": "IT"
+}
+[23.04.2020 16:22:23]
+POST
+/api/enrollments/enrollStudent
+
+{
+	"IndexNumber": "s1234",
+	"FirstName": "B",
+	"LastName": "A",
+	"BirthDate": "1993-03-03",
+	"Studies": "IT"
+}
+[23.04.2020 16:22:23]
+GET
+/favicon.ico
+
+
+[23.04.2020 16:24:29]
+GET
+/
+
+
+[23.04.2020 16:24:29]
+GET
+/favicon.ico
+
+

@@ -31,7 +31,8 @@ namespace WebApplication1
 
             var claims = new[]
             {
-                new Claim(ClaimTypes.NameIdentifier, request.Login)
+                new Claim(ClaimTypes.NameIdentifier, request.Login),
+                new Claim(ClaimTypes.Role, "employee")
             };
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["SecretKey"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
