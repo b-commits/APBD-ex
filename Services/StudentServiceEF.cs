@@ -58,7 +58,7 @@ namespace WebApplication1.Services
             s19677Context db = new s19677Context();
             //W bazie mam już procedurę promoteStudents, więc można ją uruchomić w taki sposób:
              
-            //db.Database.ExecuteSqlRaw("EXEC promoteStudents");
+            //  db.Database.ExecuteSqlRaw("EXEC promoteStudents");
 
             //lub wykonać instrukcję UPDATE ręcznie:
 
@@ -68,7 +68,7 @@ namespace WebApplication1.Services
             {
                 Boolean existsEnrol2 = db.Enrollment.Any(e => e.IdStudy == study.IdStudy && e.Semester == studiesSemester.Semester + 1);
                 var en0 = db.Enrollment.FirstOrDefault(e => e.IdStudy == study.IdStudy && e.Semester == studiesSemester.Semester + 1);
-                int id = en0.IdEnrollment;
+                int id;
                 if (!existsEnrol2)
                 {
                     var en = new EntityModels.Enrollment
@@ -81,19 +81,15 @@ namespace WebApplication1.Services
                     id = en.IdEnrollment;
                     db.Add(en);
                     db.SaveChanges();
-                }
-                var students = db.Student.ToList();
-                foreach (var student in students)
+                } else
                 {
-                    var res = new EntityModels.Student
-                    {
-                        IndexNumber = student.IndexNumber,
-                        IdEnrollment = id
-                    };
-                    db.Attach(res);
-                    db.Entry(res).Property("IdEnrollment").IsModified = true;
-                    db.SaveChanges();
+                    id = en0.IdEnrollment;
                 }
+                foreach (var s in db.Student.Where(s => s.IdEnrollment == enrol.IdEnrollment))
+                {
+                    s.IdEnrollment = id;
+                }
+                db.SaveChanges();
             }
         }
 

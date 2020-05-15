@@ -1412,3 +1412,133 @@ POST
 	"BirthDate": "1995-06-03",
 	"Studies": "IT"
 }
+[15.05.2020 17:25:03]
+GET
+/
+
+
+[15.05.2020 17:25:03]
+POST
+/api/enrollments/promotions
+
+{
+	"Studies": "Culture of Japan",
+	"Semester": 2
+}
+[15.05.2020 17:25:54]
+GET
+/
+
+
+[15.05.2020 17:25:55]
+POST
+/api/enrollments/promotions
+
+{
+	"Studies": "Culture of Japan",
+	"Semester": 2
+}
+[15.05.2020 17:26:23]
+GET
+/
+
+
+[15.05.2020 17:26:23]
+POST
+/api/enrollments/promotions
+
+{
+	"Studies": "Culture of Japan",
+	"Semester": 2
+}
+[15.05.2020 17:26:47]
+GET
+/
+
+
+[15.05.2020 17:26:48]
+POST
+/api/enrollments/promotions
+
+{
+	"Studies": "Culture of Japan",
+	"Semester": 2
+}
+[15.05.2020 17:28:39]
+GET
+/
+
+
+[15.05.2020 17:28:42]
+POST
+/api/enrollments/promotions
+
+{
+	"Studies": "Culture of Japan",
+	"Semester": 2
+}
+[15.05.2020 17:29:07]
+GET
+/
+
+
+[15.05.2020 17:29:18]
+GET
+/
+
+
+[15.05.2020 17:29:19]
+POST
+/api/enrollments/promotions
+
+{
+	"Studies": "Culture of Japan",
+	"Semester": 2
+}
+[15.05.2020 17:30:51]
+GET
+/
+
+
+[15.05.2020 17:30:52]
+POST
+/api/enrollments/promotions
+
+{
+	"Studies": "Culture of Japan",
+	"Semester": 2
+}
+[15.05.2020 17:31:21]
+GET
+/
+
+
+[15.05.2020 17:31:22]
+POST
+/api/enrollments/promotions
+
+{
+	"Studies": "Culture of Japan",
+	"Semester": 2
+}
+[15.05.2020 17:31:47]
+GET
+/
+
+
+[15.05.2020 17:31:48]
+POST
+/api/enrollments/promotions
+
+{
+	"Studies": "Culture of Japan",
+	"Semester": 2
+}
+[15.05.2020 17:37:47]
+POST
+/api/enrollments/promotions
+
+{
+	"Studies": "Culture of Japan",
+	"Semester": 2
+}
