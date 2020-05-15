@@ -55,7 +55,46 @@ namespace WebApplication1.Services
 
         public void PromoteStudents(StudiesSemester studiesSemester)
         {
-            throw new NotImplementedException();
+            s19677Context db = new s19677Context();
+            //W bazie mam już procedurę promoteStudents, więc można ją uruchomić w taki sposób:
+             
+            //db.Database.ExecuteSqlRaw("EXEC promoteStudents");
+
+            //lub wykonać instrukcję UPDATE ręcznie:
+
+            var study = db.Studies.FirstOrDefault(s => s.Name == studiesSemester.Studies);
+            var enrol = db.Enrollment.FirstOrDefault(e => e.IdStudy == study.IdStudy && e.Semester == studiesSemester.Semester);
+            if (db.Enrollment.Contains(enrol))
+            {
+                Boolean existsEnrol2 = db.Enrollment.Any(e => e.IdStudy == study.IdStudy && e.Semester == studiesSemester.Semester + 1);
+                var en0 = db.Enrollment.FirstOrDefault(e => e.IdStudy == study.IdStudy && e.Semester == studiesSemester.Semester + 1);
+                int id = en0.IdEnrollment;
+                if (!existsEnrol2)
+                {
+                    var en = new EntityModels.Enrollment
+                    {
+                        IdEnrollment = 99,
+                        Semester = studiesSemester.Semester + 1,
+                        IdStudy = study.IdStudy,
+                        StartDate = DateTime.Now
+                    };
+                    id = en.IdEnrollment;
+                    db.Add(en);
+                    db.SaveChanges();
+                }
+                var students = db.Student.ToList();
+                foreach (var student in students)
+                {
+                    var res = new EntityModels.Student
+                    {
+                        IndexNumber = student.IndexNumber,
+                        IdEnrollment = id
+                    };
+                    db.Attach(res);
+                    db.Entry(res).Property("IdEnrollment").IsModified = true;
+                    db.SaveChanges();
+                }
+            }
         }
 
         public void UpdateStudent(EntityModels.Student student)
