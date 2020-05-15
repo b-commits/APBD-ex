@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
+using WebApplication1.EntityModels;
 using WebApplication1.Middlewares;
 using WebApplication1.Services;
 
@@ -24,6 +25,7 @@ namespace WebApplication1
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<s19677Context>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             {
                 options.TokenValidationParameters = new TokenValidationParameters
@@ -36,7 +38,7 @@ namespace WebApplication1
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["SecretKey"]))
                 };
             });
-            services.AddScoped<IStudentsDbService, StudentService>();
+            services.AddScoped<IStudentsDbServiceEF, StudentServiceEF>();
             services.AddControllers();
             services.AddSwaggerGen(config => 
             {
@@ -59,31 +61,31 @@ namespace WebApplication1
 
             app.UseMiddleware<LoggingMiddleware>();
 
-            app.Use(async (context, next) =>
-            {
-                if (!context.Request.Headers.ContainsKey("Index"))
-                {
-                    context.Response.StatusCode = StatusCodes.Status401Unauthorized;
-                    await context.Response.WriteAsync("Nie podano indeksu w naglowku.");
-                    return;
-                }
-                var index = context.Request.Headers["index"].ToString();
+            //app.Use(async (context, next) =>
+            //{
+            //    if (!context.Request.Headers.ContainsKey("Index"))
+            //    {
+            //        context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+            //        await context.Response.WriteAsync("Nie podano indeksu w naglowku.");
+            //        return;
+            //    }
+            //    var index = context.Request.Headers["index"].ToString();
 
-                if (!StudentService.CheckIndex(index))
-                {
-                    context.Response.StatusCode = StatusCodes.Status401Unauthorized;
-                    await context.Response.WriteAsync("Nie ma takiego studenta w bazie");
-                }
-                await next();
-            });
+            //    if (!StudentService.CheckIndex(index))
+            //    {
+            //        context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+            //        await context.Response.WriteAsync("Nie ma takiego studenta w bazie");
+            //    }
+            //    await next();
+            //});
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
-            app.UseAuthentication();
+            //app.UseAuthentication();
 
-            app.UseAuthorization();
+            //app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

@@ -1208,3 +1208,28 @@ GET
 /favicon.ico
 
 
+[15.05.2020 13:50:00]
+GET
+/
+
+
+[15.05.2020 13:50:24]
+GET
+/api/students/getStudents
+
+
+[15.05.2020 13:50:51]
+GET
+/
+
+
+[15.05.2020 13:50:59]
+GET
+/api/students/getStudents
+
+
+[15.05.2020 13:52:05]
+GET
+/
+
+
