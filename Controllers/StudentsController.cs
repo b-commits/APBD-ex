@@ -55,11 +55,24 @@ namespace WebApplication1
         //{
         //    return Ok("Usuwanie zakończone");
         //}
+        [HttpDelete("deleteStudent/{ska}")]
+        public IActionResult DeleteStudent(string ska)
+        {
+            _service.DeleteStudent(ska);
+            return Ok("Student " + ska+ " deleted.");
+        }
+
         //[HttpPut]
         //public IActionResult UpdateStudent(int id)
         //{
         //    return Ok("Aktualizacja zakończona");
         //}
+        [HttpPut("updateStudent")]
+        public IActionResult UpdateStudent([FromBody] EntityModels.Student student)
+        {
+            _service.UpdateStudent(student);
+            return Ok("Student " + student.IndexNumber +" updated.");
+        }
  
     }
     

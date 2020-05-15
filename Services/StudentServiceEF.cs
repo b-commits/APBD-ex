@@ -35,7 +35,6 @@ namespace WebApplication1.Services
                 BirthDate = student.BirthDate
             };
             db.Attach(res); // res w systemie śledzenia zmian.
-            db.Entry(res).Property("IndexNumber").IsModified = true;
             db.Entry(res).Property("FirstName").IsModified = true;
             db.Entry(res).Property("LastName").IsModified = true;
             db.Entry(res).Property("BirthDate").IsModified = true;
