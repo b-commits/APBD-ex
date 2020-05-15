@@ -49,7 +49,7 @@ namespace WebApplication1.Controllers
         public IActionResult PromoteStudents([FromBody] StudiesSemester StudiesSemester)
         {
             _service.PromoteStudents(StudiesSemester);
-            return Ok("Student enrolled");
+            return Ok("Students promoted");
         }
 
     }
