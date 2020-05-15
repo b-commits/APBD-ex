@@ -1293,3 +1293,122 @@ PUT
 	"LastName": "Rodman",
 	"BirthDate": "1965-09-18"
 }
+[15.05.2020 16:20:34]
+GET
+/
+
+
+[15.05.2020 16:21:13]
+PUT
+/api/enrollments/enrollStudent
+
+{
+	"IndexNumber": "s1234",
+	"FirstName": "Andrzej",
+	"LastName": "Malewski",
+	"BirthDate": "1995-06-1995",
+	"Studies": "IT"
+}
+[15.05.2020 16:21:40]
+GET
+/
+
+
+[15.05.2020 16:21:40]
+PUT
+/api/enrollments/enrollStudent
+
+{
+	"IndexNumber": "s1234",
+	"FirstName": "Andrzej",
+	"LastName": "Malewski",
+	"BirthDate": "1995-06-1995",
+	"Studies": "IT"
+}
+[15.05.2020 16:21:45]
+PUT
+/api/enrollments/enrollStudent
+
+{
+	"IndexNumber": "s1234",
+	"FirstName": "Andrzej",
+	"LastName": "Malewski",
+	"BirthDate": "1995-06-1995",
+	"Studies": "IT"
+}
+[15.05.2020 16:21:45]
+PUT
+/api/enrollments/enrollStudent
+
+{
+	"IndexNumber": "s1234",
+	"FirstName": "Andrzej",
+	"LastName": "Malewski",
+	"BirthDate": "1995-06-1995",
+	"Studies": "IT"
+}
+[15.05.2020 16:21:59]
+POST
+/api/enrollments/enrollStudent
+
+{
+	"IndexNumber": "s1234",
+	"FirstName": "Andrzej",
+	"LastName": "Malewski",
+	"BirthDate": "1995-06-1995",
+	"Studies": "IT"
+}
+[15.05.2020 16:22:15]
+POST
+/api/enrollments/enrollStudent
+
+{
+	"IndexNumber": "s1234",
+	"FirstName": "Andrzej",
+	"LastName": "Malewski",
+	"BirthDate": "1995-06-03",
+	"Studies": "IT"
+}
+[15.05.2020 16:24:17]
+POST
+/api/enrollments/enrollStudent
+
+{
+	"IndexNumber": "s1234",
+	"FirstName": "Andrzej",
+	"LastName": "Malewski",
+	"BirthDate": "1995-06-03",
+	"Studies": "IT"
+}
+[15.05.2020 16:24:29]
+GET
+/
+
+
+[15.05.2020 16:24:30]
+POST
+/api/enrollments/enrollStudent
+
+{
+	"IndexNumber": "s1234",
+	"FirstName": "Andrzej",
+	"LastName": "Malewski",
+	"BirthDate": "1995-06-03",
+	"Studies": "IT"
+}
+[15.05.2020 16:29:59]
+GET
+/
+
+
+[15.05.2020 16:29:59]
+POST
+/api/enrollments/enrollStudent
+
+{
+	"IndexNumber": "s1234",
+	"FirstName": "Andrzej",
+	"LastName": "Malewski",
+	"BirthDate": "1995-06-03",
+	"Studies": "IT"
+}

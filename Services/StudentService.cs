@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using WebApplication1.Models;
 
-
 namespace WebApplication1.Services
 {
     public class StudentService : IStudentsDbService

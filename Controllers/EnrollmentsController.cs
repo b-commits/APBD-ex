@@ -10,23 +10,46 @@ namespace WebApplication1.Controllers
     [Route("api/enrollments")]
     public class EnrollmentsController : ControllerBase
     {
-        private IStudentsDbService _service;
+        //private IStudentsDbService _service;
+        private IStudentsDbServiceEF _service;
 
-        public EnrollmentsController(IStudentsDbService service)
+
+        //public EnrollmentsController(IStudentsDbService service)
+        //{
+        //    _service = service;
+        //}
+        public EnrollmentsController(IStudentsDbServiceEF service)
         {
             _service = service;
         }
+
+
+        //[HttpPost("enrollStudent")]
+        //[Authorize(Roles = "employee")]
+        //public IActionResult EnrollStudent([FromBody] Student Student)
+        //{
+        //    return StatusCode((int)HttpStatusCode.Created, _service.EnrollStudent(Student));
+        //}
         [HttpPost("enrollStudent")]
-        [Authorize(Roles = "employee")]
         public IActionResult EnrollStudent([FromBody] Student Student)
         {
-            return StatusCode((int)HttpStatusCode.Created, _service.EnrollStudent(Student));
+            _service.EnrollStudent(Student);
+            return Ok("Student enrolled");
         }
+
+
+
+        //[HttpPost("promotions")]
+        //[Authorize(Roles = "employee")]
+        //public IActionResult PromoteStudents([FromBody] StudiesSemester StudiesSemester)
+        //{
+        //    return StatusCode((int)HttpStatusCode.Created, _service.PromoteStudents(StudiesSemester));
+        //}
         [HttpPost("promotions")]
-        [Authorize(Roles = "employee")]
         public IActionResult PromoteStudents([FromBody] StudiesSemester StudiesSemester)
         {
-            return StatusCode((int)HttpStatusCode.Created, _service.PromoteStudents(StudiesSemester));
+            _service.PromoteStudents(StudiesSemester);
+            return Ok("Student enrolled");
         }
 
     }
